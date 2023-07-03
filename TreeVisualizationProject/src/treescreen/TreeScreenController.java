@@ -102,10 +102,6 @@ public class TreeScreenController {
             this.tree = tree2;
         }
     }
-        
-    public Pane getDrawPane() {
-		return drawPane;
-	}
 
 	@FXML
     public void initialize() {

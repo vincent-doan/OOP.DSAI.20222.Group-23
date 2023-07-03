@@ -21,9 +21,12 @@
 
 <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: aec6cf;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treescreen.TreeScreenController">
    <center>
-      <VBox BorderPane.alignment="CENTER">
-         <children>
-            <TabPane prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: lightgray;" tabClosingPolicy="UNAVAILABLE">
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <Pane fx:id="drawPane" prefHeight="425.0" prefWidth="694.0" style="-fx-background-color: white;" />
+         </center>
+         <top>
+            <TabPane prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: lightgray;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                 <Tab style="-fx-background-radius: 10px;" text="Insert Node">
                   <content>
@@ -90,9 +93,8 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <Pane fx:id="drawPane" prefHeight="425.0" prefWidth="694.0" style="-fx-background-color: white;" />
-         </children>
-      </VBox>
+         </top>
+      </BorderPane>
    </center>
    <top>
       <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
