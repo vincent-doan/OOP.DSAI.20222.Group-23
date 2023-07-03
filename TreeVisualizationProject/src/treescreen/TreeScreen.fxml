@@ -32,7 +32,7 @@
                               <Label layoutX="320.0" layoutY="25.0" text="Child Node" />
                               <TextField fx:id="tfParentNode" layoutX="107.0" layoutY="20.0" />
                               <TextField fx:id="tfChildNode" layoutX="405.0" layoutY="20.0" />
-                              <Button layoutX="623.0" layoutY="20.0" mnemonicParsing="false" text="Go" />
+                              <Button layoutX="623.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnInsertPressed" text="Go" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -42,8 +42,8 @@
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="25.0" text="Node" />
-                              <TextField layoutX="107.0" layoutY="20.0" />
-                              <Button layoutX="325.0" layoutY="20.0" mnemonicParsing="false" text="Go" />
+                              <TextField fx:id="tfDeleteNode" layoutX="107.0" layoutY="20.0" />
+                              <Button layoutX="325.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnDeletePressed" text="Go" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -53,8 +53,8 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="25.0" text="Node" />
-                              <TextField layoutX="107.0" layoutY="20.0" />
-                              <Button layoutX="325.0" layoutY="20.0" mnemonicParsing="false" text="Go" />
+                              <TextField fx:id="tfSearchNode" layoutX="107.0" layoutY="20.0" />
+                              <Button layoutX="325.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSearchPressed" text="Go" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -64,10 +64,10 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="25.0" text="Old Node" />
-                              <TextField layoutX="107.0" layoutY="20.0" />
+                              <TextField fx:id="tfOldNode" layoutX="107.0" layoutY="20.0" />
                               <Label layoutX="320.0" layoutY="25.0" text="New Node" />
-                              <TextField layoutX="405.0" layoutY="20.0" />
-                              <Button layoutX="623.0" layoutY="20.0" mnemonicParsing="false" text="Go" />
+                              <TextField fx:id="tfNewNode" layoutX="405.0" layoutY="20.0" />
+                              <Button layoutX="623.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnUpdatePressed" text="Go" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -76,7 +76,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="454.0" layoutY="20.0" mnemonicParsing="false" text="Go" />
+                              <Button layoutX="454.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnTraversePressed" text="Go" />
                               <RadioButton layoutX="14.0" layoutY="25.0" mnemonicParsing="false" selected="true" text="Breadth First Search (BFS)">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="algorithmChoice" />
@@ -131,12 +131,12 @@
                   </TitledPane>
                   <HBox alignment="CENTER" prefHeight="60.0">
                      <children>
-                        <Button fx:id="btnBackward" mnemonicParsing="false" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Backward">
+                        <Button fx:id="btnBackward" mnemonicParsing="false" onAction="#btnBackwardPressed" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Backward">
                            <HBox.margin>
                               <Insets right="4.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnForward" mnemonicParsing="false" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Forward">
+                        <Button fx:id="btnForward" mnemonicParsing="false" onAction="#btnForwardPressed" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Forward">
                            <HBox.margin>
                               <Insets left="4.0" />
                            </HBox.margin>
@@ -145,12 +145,12 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="50.0">
                      <children>
-                        <Button fx:id="btnPause" mnemonicParsing="false" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Pause">
+                        <Button fx:id="btnPause" mnemonicParsing="false" onAction="#btnPausePressed" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Pause">
                            <HBox.margin>
                               <Insets right="4.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnContinue" mnemonicParsing="false" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Continue">
+                        <Button fx:id="btnContinue" mnemonicParsing="false" onAction="#btnContinuePressed" prefWidth="84.0" style="-fx-background-radius: 10px;" text="Continue">
                            <HBox.margin>
                               <Insets left="4.0" />
                            </HBox.margin>
