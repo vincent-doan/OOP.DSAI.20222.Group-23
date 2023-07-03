@@ -2,15 +2,24 @@ package treescreen;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import mainmenu.MainScreen;
+import treedatastructure.BalancedBinaryTree;
+import treedatastructure.BalancedTree;
+import treedatastructure.BinaryTree;
+import treedatastructure.GenericTree;
 
 public class TreeScreenController {
-
+	
+	private GenericTree tree;
+	
     @FXML
     private TextField tfParentNode;
 
@@ -79,11 +88,40 @@ public class TreeScreenController {
 
     @FXML
     private Button btnContinue;
+    
+    // Set the correct child-class data type to the attribute tree
+    public void setTree(GenericTree tree) {
+        if (tree instanceof BalancedBinaryTree) {
+            BalancedBinaryTree tree2 = (BalancedBinaryTree) tree;
+            this.tree = tree2;
+        } else if (tree instanceof BalancedTree) {
+            BalancedTree tree2 = (BalancedTree) tree;
+            this.tree = tree2;
+        } else if (tree instanceof BinaryTree) {
+            BinaryTree tree2 = (BinaryTree) tree;
+            this.tree = tree2;
+        }
+    }
+        
+    public Pane getDrawPane() {
+		return drawPane;
+	}
 
+	@FXML
+    public void initialize() {
+    	// Disable buttons
+        btnBackward.setDisable(true);
+        btnForward.setDisable(true);
+        btnContinue.setDisable(true);
+        
+        // Disable text field
+        tfParentNode.setDisable(true);
+    }
+    
     @FXML
     private ProgressBar progressBar;
-
-    @FXML
+    
+	@FXML
     void btnBackwardPressed(ActionEvent event) {
 
     }
@@ -119,8 +157,9 @@ public class TreeScreenController {
     }
 
     @FXML
-    void btnReturnPressed(ActionEvent event) {
-
+    void btnReturnPressed(ActionEvent event) throws Exception {
+    	new MainScreen().start(new Stage());
+		((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
     @FXML
@@ -137,5 +176,4 @@ public class TreeScreenController {
     void btnUpdatePressed(ActionEvent event) {
 
     }
-
 }

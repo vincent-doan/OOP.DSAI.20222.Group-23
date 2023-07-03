@@ -11,31 +11,41 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import treedatastructure.BalancedBinaryTree;
+import treedatastructure.BalancedTree;
+import treedatastructure.BinaryTree;
+import treedatastructure.GenericTree;
+import treescreen.TreeScreen;
 
 public class MainScreenController {
 
 	@FXML
-	public void btnCreateGenericTreePressed(ActionEvent event) {
+	public void btnCreateGenericTreePressed(ActionEvent event) throws Exception {
+		new TreeScreen().start(new GenericTree(), new Stage());
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@FXML
-	public void btnCreateBalancedTreePressed(ActionEvent event) {
+	public void btnCreateBalancedTreePressed(ActionEvent event) throws Exception {
 	    int maxDepth = handleMaximumDepthInput();
 	    if (maxDepth != -1) {
-	    	// Add code to move to TreeScreen
+	    	new TreeScreen().start(new BalancedTree(), new Stage());
+			((Node)(event.getSource())).getScene().getWindow().hide();
 	    }
 	}
 
-
 	@FXML
-	public void btnCreateBinaryTreePressed(ActionEvent event) {
+	public void btnCreateBinaryTreePressed(ActionEvent event) throws Exception {
+		new TreeScreen().start(new BinaryTree(), new Stage());
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@FXML
-	public void btnCreateBalancedBinaryTreePressed(ActionEvent event) {
+	public void btnCreateBalancedBinaryTreePressed(ActionEvent event) throws Exception {
 		int maxDepth = handleMaximumDepthInput();
 	    if (maxDepth != -1) {
-	    	// Add code to move to TreeScreen
+	    	new TreeScreen().start(new BalancedBinaryTree(), new Stage());
+			((Node)(event.getSource())).getScene().getWindow().hide();
 	    }
 	}
 
