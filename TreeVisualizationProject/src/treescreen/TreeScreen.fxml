@@ -28,7 +28,7 @@
          <top>
             <TabPane prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: lightgray;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab style="-fx-background-radius: 10px;" text="Insert Node">
+                <Tab fx:id="tabInsert" style="-fx-background-radius: 10px;" text="Insert Node">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -41,7 +41,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab style="-fx-background-radius: 10px;" text="Delete Node">
+                <Tab fx:id="tabDelete" style="-fx-background-radius: 10px;" text="Delete Node">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -52,7 +52,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab style="-fx-background-radius: 10px;" text="Search Node">
+                  <Tab fx:id="tabSearch" style="-fx-background-radius: 10px;" text="Search Node">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -63,7 +63,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab style="-fx-background-radius: 10px;" text="Update Node">
+                  <Tab fx:id="tabUpdate" style="-fx-background-radius: 10px;" text="Update Node">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -76,7 +76,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab style="-fx-background-radius: 10px;" text="Traverse Tree">
+                  <Tab fx:id="tabTraverse" style="-fx-background-radius: 10px;" text="Traverse Tree">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>

@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
@@ -19,6 +21,21 @@ import treedatastructure.GenericTree;
 public class TreeScreenController {
 	
 	private GenericTree tree;
+	
+	@FXML
+    private Tab tabInsert;
+	
+	@FXML
+    private Tab tabDelete;
+
+    @FXML
+    private Tab tabSearch;
+    
+    @FXML
+    private Tab tabUpdate;
+    
+    @FXML
+    private Tab tabTraverse;
 	
     @FXML
     private TextField tfParentNode;
@@ -89,6 +106,9 @@ public class TreeScreenController {
     @FXML
     private Button btnContinue;
     
+    @FXML
+    private ProgressBar progressBar;
+    
     // Set the correct child-class data type to the attribute tree
     public void setTree(GenericTree tree) {
         if (tree instanceof BalancedBinaryTree) {
@@ -102,20 +122,32 @@ public class TreeScreenController {
             this.tree = tree2;
         }
     }
-
+    
+    // Set the initial state of TreeScreen window
 	@FXML
     public void initialize() {
-    	// Disable buttons
+    	// Disable play-related buttons
         btnBackward.setDisable(true);
         btnForward.setDisable(true);
+        btnPause.setDisable(true);
         btnContinue.setDisable(true);
         
-        // Disable text field
+        // Disable Parent Node text field
         tfParentNode.setDisable(true);
+        
+        // Disable all tabs except Insert Node
+        tabDelete.setDisable(true);
+        tabSearch.setDisable(true);
+        tabUpdate.setDisable(true);
+        tabTraverse.setDisable(true);
+        
+        // Bind the pseudocode pane visibility to tab selected
+        srcInsert.visibleProperty().bind(tabInsert.selectedProperty());
+        srcDelete.visibleProperty().bind(tabDelete.selectedProperty());
+        srcUpdate.visibleProperty().bind(tabUpdate.selectedProperty());
+        srcSearch.visibleProperty().bind(tabSearch.selectedProperty());
+        srcTraverse.visibleProperty().bind(tabTraverse.selectedProperty());
     }
-    
-    @FXML
-    private ProgressBar progressBar;
     
 	@FXML
     void btnBackwardPressed(ActionEvent event) {
@@ -148,17 +180,6 @@ public class TreeScreenController {
     }
 
     @FXML
-    void btnRedoPressed(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnReturnPressed(ActionEvent event) throws Exception {
-    	new MainScreen().start(new Stage());
-		((Node)(event.getSource())).getScene().getWindow().hide();
-    }
-
-    @FXML
     void btnSearchPressed(ActionEvent event) {
 
     }
@@ -171,5 +192,18 @@ public class TreeScreenController {
     @FXML
     void btnUpdatePressed(ActionEvent event) {
 
+    }
+    
+    // Blank out entire drawPane and start from scratch
+    @FXML
+    void btnRedoPressed(ActionEvent event) {
+
+    }  
+    
+    // Return to main menu
+    @FXML
+    void btnReturnPressed(ActionEvent event) throws Exception {
+    	new MainScreen().start(new Stage());
+		((Node)(event.getSource())).getScene().getWindow().hide();
     }
 }
