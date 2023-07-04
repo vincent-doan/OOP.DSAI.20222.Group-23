@@ -27,10 +27,13 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea editable="false" prefHeight="304.0" prefWidth="734.0" text="- This application aims to help visualize the structure and properties of several Tree data structures.&#10;&#10;- User have the option to select among four types of Tree data structures, including: Generic Tree, Binary Tree, Balanced Tree, Balanced Binary Tree.&#10;&#10;- For Balanced Tree and Balanced Binary Tree, user must input the maximum difference in the heights of the left and right subtrees of any node.&#10;&#10;- In the visualization, user can choose to visualize one of six operations (some of which requires parameter input), including Create tree, Insert node, Delete node, Update node, Traverse tree, and Search tree.&#10;&#10;- During visualization, user can see the pseudocode for the given operation and the progress bar, as well as choosing to pause, continue, or go backward or forward a step in the execution.&#10; " wrapText="true">
+            <TextArea editable="false" prefHeight="304.0" prefWidth="734.0" text="- This application aims to help visualize the structure and properties of several Tree data structures. Only undirected trees, with integer node values and no duplicated node values, are considered.&#10;&#10;- User have the option to select among four types of Tree data structures, including: Generic Tree, Binary Tree, Balanced Tree, Balanced Binary Tree.&#10;&#10;- For Balanced Tree and Balanced Binary Tree, user must input the maximum difference in the heights of the left and right subtrees of any node.&#10;&#10;- In the visualization, user can choose to visualize one of six operations (some of which requires parameter input), including Create tree, Insert node, Delete node, Update node, Traverse tree, and Search tree.&#10;&#10;- During visualization, in order to keep track of the progress, user can see the pseudocode for the given operation and the progress bar, as well as choosing to pause, continue, or go backward or forward a step in the execution. The user can also undo or redo operations from the bottom bar.&#10; " wrapText="true">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </TextArea>
             <HBox alignment="CENTER" prefHeight="120.0" prefWidth="200.0">
                <children>
