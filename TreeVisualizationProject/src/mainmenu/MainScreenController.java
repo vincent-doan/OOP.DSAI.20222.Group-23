@@ -27,10 +27,14 @@ public class MainScreenController {
 
 	@FXML
 	public void btnCreateBalancedTreePressed(ActionEvent event) throws Exception {
-	    int maxDepth = handleMaximumDepthInput();
-	    if (maxDepth != -1) {
-	    	new TreeScreen().start(new BalancedTree(), new Stage());
-			((Node)(event.getSource())).getScene().getWindow().hide();
+	    try {
+			int maxDepth = handleMaximumDepthInput();
+		    if (maxDepth != -1) {
+		    	new TreeScreen().start(new BalancedTree(), new Stage());
+				((Node)(event.getSource())).getScene().getWindow().hide();
+		    }
+	    } catch (MaximumDepthException e) {
+	    	JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
 	    }
 	}
 
@@ -42,10 +46,14 @@ public class MainScreenController {
 
 	@FXML
 	public void btnCreateBalancedBinaryTreePressed(ActionEvent event) throws Exception {
-		int maxDepth = handleMaximumDepthInput();
-	    if (maxDepth != -1) {
-	    	new TreeScreen().start(new BalancedBinaryTree(), new Stage());
-			((Node)(event.getSource())).getScene().getWindow().hide();
+		try {
+			int maxDepth = handleMaximumDepthInput();
+		    if (maxDepth != -1) {
+		    	new TreeScreen().start(new BalancedTree(), new Stage());
+				((Node)(event.getSource())).getScene().getWindow().hide();
+		    }
+	    } catch (MaximumDepthException e) {
+	    	JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
 	    }
 	}
 
@@ -71,7 +79,8 @@ public class MainScreenController {
         });
 	}
 	
-	private int handleMaximumDepthInput() {
+	// For Balanced Tree and Binary Balanced Tree
+	private int handleMaximumDepthInput() throws MaximumDepthException {
 		try {
 	        String input = JOptionPane.showInputDialog("Please enter the maximum depth: ");
 	        // User clicks Cancel
@@ -84,9 +93,8 @@ public class MainScreenController {
 	            throw new MaximumDepthException();
 	        }
 	        return maxDepth;
-	    } catch (NumberFormatException | MaximumDepthException e) {
-	        JOptionPane.showMessageDialog(null, "Maximum depth must be a positive integer!", "Error", JOptionPane.WARNING_MESSAGE);
-	        return -1;
+		} catch (NumberFormatException e) {
+			throw new MaximumDepthException();
 	    }
 	}
 }
